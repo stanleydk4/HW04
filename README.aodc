@@ -1,0 +1,56 @@
+= [green]#cURL 和 Postman 的用途簡介#
+
+= [white purple-background]#Postman#
+
+.[red big]#圖形化的 API 測試工具#
+****
+提供了更加友好的用戶界面。它的主要功能包括：
+
+*直觀的界面*
+
+提供了可視化界面，使得構建和發送請求變得簡單。用戶可以輕鬆地設置請求方法、標頭和請求體，而不需要記憶命令行語法。
+
+*請求歷史紀錄*
+
+保存所有請求的歷史紀錄，方便用戶隨時查看和重複使用先前的請求。
+
+*環境變數管理*
+
+用戶可以設置環境變數，以便在不同的環境中（如開發、測試和生產）輕鬆切換配置。
+
+*測試和文檔生成*
+
+支持編寫測試腳本來驗證 API 的回應，並能自動生成 API 文檔，方便團隊協作。
+
+****
+
+= [white purple-background]#cURL#
+
+****
+.[red big]#Command Line工具#
+支持多種協議（如 HTTP、HTTPS、FTP 等），主要用於發送和接收資料。以下是 cURL 的一些主要用途：
+
+=== 發送 HTTP 請求
+通過直接發送 [yellow-background]#GET、POST、PUT、DELETE# 等請求。例如：
+[source,bash]
+----
+curl -X POST -d '{ "key": "value" }' https://example.com/api
+----
+
+=== 跟隨重定向
+使用 `-L` 參數可以讓 cURL 自動跟隨 HTTP 重定向，這在處理 API 返回的 302 狀態碼時特別有用。
+[source,bash]
+----
+curl -L https://example.com/redirect
+----
+
+=== 文件上傳
+支持文件上傳功能，可以使用 `-F` 參數來上傳檔案，例如：
+[source,bash]
+----
+curl -X POST -F 'file=@path/to/file' http://example.com/upload
+----
+
+=== 自動化腳本
+因為 cURL 是命令行工具，非常適合在腳本中使用，便於自動化測試和集成。
+****
